@@ -1,0 +1,23 @@
+
+>
+java:S1068"(Remove this unused "name" private field.(Ë¥¼
+J
+java:S1068"/Remove this unused "description" private field.(ÇÓæâıÿÿÿÿ
+B
+java:S1068#"'Remove this unused "url" private field.(«Œåùÿÿÿÿ
+L
+java:S1068+"1Remove this unused "requestParams" private field.(“¦†¦üÿÿÿÿ
+G
+java:S10680"1Remove this unused "requestHeader" private field.(Œë¯§
+M
+java:S10685"2Remove this unused "responseHeader" private field.(®ÏÅ«ÿÿÿÿÿ
+@
+java:S1068:"*Remove this unused "status" private field.(‚Ÿü
+@
+java:S1068?"*Remove this unused "method" private field.(ÁÙôş
+E
+java:S1068D"*Remove this unused "userId" private field.(Â—‹¼úÿÿÿÿ
+C
+java:S1068I".Remove this unused "createTime" private field.(ßÈ¨L
+D
+java:S1068N".Remove this unused "updateTime" private field.(‡¾áá
