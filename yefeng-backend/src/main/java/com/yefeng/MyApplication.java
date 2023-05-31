@@ -7,9 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.yefeng.mapper")
-@EnableDubbo
+//@EnableDubbo
 public class MyApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(MyApplication.class, args);
     }

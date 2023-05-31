@@ -1,8 +1,7 @@
 package com.yefeng.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.yefeng.yefengcommon.model.entity.User;
-import org.springframework.stereotype.Service;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 
 
-public interface UserService {
+public interface UserService extends IService<User> {
     /**
      * 用户注册
      *
@@ -39,4 +38,6 @@ public interface UserService {
      * @return
      */
     Boolean userLogout(HttpServletRequest request);
+
+    User getLoinUser(HttpServletRequest request);
 }

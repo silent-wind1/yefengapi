@@ -23,8 +23,6 @@ Zyefeng-common/src/main/java/com/yefeng/yefengcommon/service/InnerInterfaceInfoS
 Qyefeng-common/src/main/java/com/yefeng/yefengcommon/service/InnerUserService.java,5\e\5ed67620de327549c92112a3dc636f94b3089dfa
 z
 Jyefeng-common/src/main/java/com/yefeng/yefengcommon/model/entity/Post.java,9\e\9e94a704930750e2bd0018b5542846cffe50449d
-z
-Jyefeng-common/src/main/java/com/yefeng/yefengcommon/model/entity/User.java,f\d\fd6545d67adc81d3d004d3b2e59dec167cc6e7c6
 ‡
 Wyefeng-common/src/main/java/com/yefeng/yefengcommon/model/entity/UserInterfaceInfo.java,f\6\f6d442a90578b7e3204f83f81833677b9b6f37da
 Œ
@@ -55,8 +53,6 @@ _
 /src/main/java/com/yefeng/mapper/UserMapper.java,6\7\674014a1106838f12da480cde7f6946216e8fafa
 m
 =src/main/java/com/yefeng/model/dto/user/UserQueryRequest.java,b\f\bfb90a1de2bcd0249162c39eb624dba338a2655f
-[
-+src/main/java/com/yefeng/MyApplication.java,4\e\4eab6029ff72c950ab88562701a436d745b8e354
 e
 5src/main/java/com/yefeng/constant/CommonConstant.java,b\9\b9b9dc2567433841585e7f457f093fd1df163155
 `
@@ -73,11 +69,7 @@ g
 7src/main/java/com/yefeng/controller/PostController.java,d\9\d9b406e36abd353466002d4f8a5849562e4ab87a
 a
 1src/main/java/com/yefeng/common/BaseResponse.java,f\0\f0fd2159e817b1ba5cab423e271002dfd7e1588c
-k
-;src/main/java/com/yefeng/model/dto/user/UserAddRequest.java,a\f\af8f7e85159fbb306b7dc6f8df4644e8cbe65a97
 I
 yefeng-client-sdk/pom.xml,0\7\07e57a130b8daddfc90c2af2fb9cb6c3f03f3be2
 n
 >yefeng-client-sdk/src/main/resources/META-INF/spring.factories,b\d\bd86484d1f6a5f2529b10bde637871efbb7313b7
-a
-1src/main/java/com/yefeng/service/UserService.java,e\e\ee4eeba262699b3d522f0bb7da41c33234d59e4a
