@@ -3,6 +3,8 @@ package com.yefeng.controller;
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
 import com.yefeng.common.BaseResponse;
 import com.yefeng.common.DeleteRequest;
 import com.yefeng.common.ErrorCode;
@@ -101,7 +103,7 @@ public class UserController {
      */
     @GetMapping("/get/login")
     public BaseResponse<UserVO> getLoginUser(HttpServletRequest request) {
-        User user = userService.getLoinUser(request);
+        User user = userService.getLoginUser(request);
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO);
         return ResultUtils.success(userVO);
@@ -200,4 +202,30 @@ public class UserController {
         return ResultUtils.success(userVOList);
     }
 
+    /**
+     * 获取用户列表分页
+     * @param userQueryRequest
+     * @return
+     */
+    @GetMapping("/list/page")
+    public BaseResponse<Page<UserVO>> listUserByPage(UserQueryRequest userQueryRequest) {
+        long current = 1;
+        long size = 10;
+        User userQuery = new User();
+        if (userQueryRequest != null) {
+            BeanUtils.copyProperties(userQueryRequest, userQuery);
+            current = userQueryRequest.getCurrent();
+            size = userQueryRequest.getPageSize();
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>(userQuery);
+        Page<User> userPage = userService.page(new Page<>(current, size), queryWrapper);
+        PageDTO<UserVO> userVoPage = new PageDTO<>(userPage.getCurrent(), userPage.getSize(), userPage.getTotal());
+        List<UserVO> userVOList = userPage.getRecords().stream().map(user -> {
+            UserVO userVO = new UserVO();
+            BeanUtils.copyProperties(user, userVO);
+            return userVO;
+        }).collect(Collectors.toList());
+        userVoPage.setRecords(userVOList);
+        return ResultUtils.success(userVoPage);
+    }
 }

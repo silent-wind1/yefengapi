@@ -18,6 +18,7 @@ import org.springframework.util.DigestUtils;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import static com.yefeng.constant.UserConstant.ADMIN_ROLE;
 import static com.yefeng.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
@@ -115,8 +116,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return true;
     }
 
+    /**
+     * 获取当前登录用户
+     * @param request
+     * @return
+     */
     @Override
-    public User getLoinUser(HttpServletRequest request) {
+    public User getLoginUser(HttpServletRequest request) {
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User currentUser = (User) userObj;
         if(currentUser == null || currentUser.getId() == null) {
@@ -128,6 +134,18 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
         return currentUser;
+    }
+
+    /**
+     * 是否为管理员
+     * @param request
+     * @return
+     */
+    @Override
+    public boolean isAdmin(HttpServletRequest request) {
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        User user = (User) userObj;
+        return user != null && ADMIN_ROLE.equals(user.getUserRole());
     }
 
 
