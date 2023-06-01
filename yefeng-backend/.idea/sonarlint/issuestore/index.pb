@@ -1,6 +1,4 @@
 
-_
-/src/main/java/com/yefeng/model/entity/Post.java,0\3\030f8bd7543d994aa48d42d13744f878d0e4b50b
 k
 ;src/main/java/com/yefeng/model/dto/post/PostAddRequest.java,4\e\4e60f4f540c57aec0ac643f1971eb44f624f81b1
 €
@@ -32,8 +30,6 @@ Syefeng-common/src/main/java/com/yefeng/yefengcommon/model/enums/PostGenderEnum.
 ‰
 Yyefeng-common/src/main/java/com/yefeng/yefengcommon/model/enums/PostReviewStatusEnum.java,6\8\6807e17376194a2bb9ee9c94d8be2bceaf16ae01
 x
-Hyefeng-common/src/main/java/com/yefeng/yefengcommon/model/vo/UserVO.java,7\4\740671d814abf91f6923514d9783e3c839a8fa3a
-x
 Hyefeng-common/src/main/java/com/yefeng/yefengcommon/model/vo/PostVO.java,8\9\89b98ab4793311e232d7a79f279a8ed14131a87f
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
@@ -47,12 +43,8 @@ m
 =src/main/java/com/yefeng/model/dto/user/UserLoginRequest.java,4\d\4d43be7f319463f85d0b3457843208c1c4f9ea1b
 _
 /src/main/java/com/yefeng/mapper/UserMapper.java,6\7\674014a1106838f12da480cde7f6946216e8fafa
-m
-=src/main/java/com/yefeng/model/dto/user/UserQueryRequest.java,b\f\bfb90a1de2bcd0249162c39eb624dba338a2655f
 p
 @src/main/java/com/yefeng/model/dto/user/UserRegisterRequest.java,a\3\a38462b5b25aaefdebabbbdebf0d30b3fe2a415f
-n
->src/main/java/com/yefeng/model/dto/user/UserUpdateRequest.java,5\2\520ce606c652ed694c2098902fef5a16f0ef2c0c
 e
 5src/main/java/com/yefeng/constant/CommonConstant.java,b\9\b9b9dc2567433841585e7f457f093fd1df163155
 `
@@ -65,11 +57,13 @@ i
 9src/main/java/com/yefeng/exception/BusinessException.java,d\6\d6cd4b39a04f0be444dd07e853223c4842b42cff
 g
 7src/main/java/com/yefeng/controller/PostController.java,d\9\d9b406e36abd353466002d4f8a5849562e4ab87a
-`
-0src/main/java/com/yefeng/common/PageRequest.java,3\2\3222fcd414a6fb749eb7eaf5a9d0c663bcd8e99e
 a
 1src/main/java/com/yefeng/common/BaseResponse.java,f\0\f0fd2159e817b1ba5cab423e271002dfd7e1588c
 I
 yefeng-client-sdk/pom.xml,0\7\07e57a130b8daddfc90c2af2fb9cb6c3f03f3be2
 n
 >yefeng-client-sdk/src/main/resources/META-INF/spring.factories,b\d\bd86484d1f6a5f2529b10bde637871efbb7313b7
+k
+;src/main/java/com/yefeng/model/dto/user/UserAddRequest.java,a\f\af8f7e85159fbb306b7dc6f8df4644e8cbe65a97
+a
+1src/main/java/com/yefeng/service/UserService.java,e\e\ee4eeba262699b3d522f0bb7da41c33234d59e4a

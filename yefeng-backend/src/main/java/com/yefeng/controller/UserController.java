@@ -2,17 +2,17 @@ package com.yefeng.controller;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yefeng.common.BaseResponse;
 import com.yefeng.common.DeleteRequest;
 import com.yefeng.common.ErrorCode;
 import com.yefeng.common.ResultUtils;
 import com.yefeng.exception.BusinessException;
-import com.yefeng.model.dto.user.UserAddRequest;
-import com.yefeng.model.dto.user.UserLoginRequest;
-import com.yefeng.model.dto.user.UserRegisterRequest;
+import com.yefeng.model.dto.user.*;
 import com.yefeng.service.UserService;
 import com.yefeng.yefengcommon.model.entity.User;
 import com.yefeng.yefengcommon.model.vo.UserVO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.util.DigestUtils;
@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 用户接口
@@ -29,6 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
     @Resource
     private UserService userService;
@@ -141,4 +144,60 @@ public class UserController {
         boolean result = userService.removeById(deleteRequest.getId());
         return ResultUtils.success(result);
     }
+
+    /**
+     * 更新用户
+     * @param updateRequest
+     * @return
+     */
+    @PostMapping("/update")
+    public BaseResponse<Boolean> updateUser(@RequestBody UserUpdateRequest updateRequest) {
+        log.info("updateRequest:", updateRequest);
+        if (updateRequest == null || updateRequest.getId() == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User user = new User();
+        BeanUtils.copyProperties(updateRequest, user);
+        boolean result = userService.updateById(user);
+        return ResultUtils.success(result);
+    }
+
+    /**
+     * 根据id获取用户
+     * @param id
+     * @return
+     */
+    @GetMapping("/get")
+    public BaseResponse<UserVO> getUserById(int id) {
+        if(id <= 0) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        User user = userService.getById(id);
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(user, userVO);
+        return ResultUtils.success(userVO);
+    }
+
+    /**
+     * 获取用户列表
+     * @param userQueryRequest
+     * @return
+     */
+    @GetMapping("/list")
+    public BaseResponse<List<UserVO>> listUsers(UserQueryRequest userQueryRequest) {
+        User userQuery = new User();
+        log.info("userQuery:", userQueryRequest);
+        if(userQueryRequest != null) {
+            BeanUtils.copyProperties(userQueryRequest, userQuery);
+        }
+        QueryWrapper<User> wrapper = new QueryWrapper<>(userQuery);
+        List<User> userList = userService.list(wrapper);
+        List<UserVO> userVOList = userList.stream().map(user -> {
+            UserVO userVO = new UserVO();
+            BeanUtils.copyProperties(user, userVO);
+            return userVO;
+        }).collect(Collectors.toList());
+        return ResultUtils.success(userVOList);
+    }
+
 }
